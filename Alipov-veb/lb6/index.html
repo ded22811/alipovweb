@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Форма оформления заказа</title>
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var address = document.getElementById("address").value;
+      var phone = document.getElementById("phone").value;
+      var quantity = document.getElementById("quantity").value;
+      
+      if (name === "" || email === "" || address === "" || phone === "" || quantity === "") {
+        alert("Заполните все поля");
+        return false;
+      }
+      
+      if (!validateEmail(email)) {
+        alert("Введите правильный адрес email");
+        return false;
+      }
+      
+      if (!validatePhone(phone)) {
+        alert("Введите свой номер телефона без +7 или 8");
+        return false;
+      }
+      
+      return true;
+    }
+    
+    function validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+    
+    function validatePhone(phone) {
+      var re = /^\d{10}$/;
+      return re.test(phone);
+    }
+    
+    function submitForm() {
+      if (validateForm()) {
+        var formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          address: document.getElementById("address").value,
+          phone: document.getElementById("phone").value,
+          size: document.getElementById("size").value,
+          quantity: document.getElementById("quantity").value,
+          shipping: document.querySelector('input[name="shipping"]:checked').value
+        };
+        
+        var output = document.getElementById("output");
+        output.innerHTML = "Имя: " + formData.name + "<br>" +
+          "Email: " + formData.email + "<br>" +
+          "Адрес: " + formData.address + "<br>" +
+          "Телефон: " + formData.phone + "<br>" +
+          "Размер: " + formData.size + "<br>" +
+          "Количество " + formData.quantity + "<br>" +
+          "Доставка: " + formData.shipping + "<br>";
+        
+        document.getElementById("order-form").reset();
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Форма оформления заказа</h2>
+  <form id="order-form" onsubmit="event.preventDefault(); submitForm()">
+    <div class="form-group">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" placeholder="Введите  имя" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Введите email" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address" placeholder="Введите адрес" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Телефон:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
+    </div>
+    <div class="form-group">
+      <label for="size">Размер:</label>
+      <select id="size" name="size" required>
+        <option value="small">S</option>
+        <option value="medium">M</option>
+        <option value="large">L</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Количество:</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Введите количество" required>
+    </div>
+    <div class="form-group">
+      <label for="shipping">Способ доставки:</label>
+      <input type="radio" id="shipping-standard" name="shipping" value="Почта" checked>
+      <label for="shipping-standard">Почта</label>
+      <input type="radio" id="shipping-express" name="shipping" value="Курьер">
+      <label for="shipping-express">Курьер</label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Submit Order">
+    </div>
+  </form>
+  <div id="output"></div>
+</body>
+</html>

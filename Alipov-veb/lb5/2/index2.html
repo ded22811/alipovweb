@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сумма элементов массива</title>
+</head>
+<body>
+    <h1>Вычисление суммы элементов</h1>
+    <p>Введите массив действительных чисел, разделенных запятыми:</p>
+    <input type="text" id="inputArray">
+    <button onclick="calculateSum()">Вычислить сумму</button>
+    <p id="result"></p>
+    <script>
+        function calculateSum() {
+            var inputArray = document.getElementById('inputArray').value;
+            var array = inputArray.split(',').map(Number);
+            var sum = 0;
+            var firstMatchingIndex = -1;
+            var lastMatchingIndex = -1;
+
+            for (var i = 0; i < array.length; i++) {
+                if (Math.abs(array[i] - Math.PI) <= 1e-5) {
+                    if (firstMatchingIndex === -1) {
+                        firstMatchingIndex = i;
+                    }
+                    lastMatchingIndex = i;
+                }
+            }
+
+            if (firstMatchingIndex !== -1 && lastMatchingIndex !== -1) {
+                for (var j = Math.min(firstMatchingIndex, lastMatchingIndex) + 1; j < Math.max(firstMatchingIndex, lastMatchingIndex); j++) {
+                    sum += array[j];
+                }
+                document.getElementById('result').textContent = "Сумма элементов между первым и последним числом, удовлетворяющим условию: " + sum;
+            } else {
+                document.getElementById('result').textContent = "Числа, удовлетворяющие условию, не найдены.";
+            }
+        }
+    </script>
+</body>
+</html>

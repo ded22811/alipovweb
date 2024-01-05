@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Форма оформления заказа</title>
+</head>
+<body>
+  <h2>Форма оформления заказа</h2>
+  <form action="/submit-order" method="post">
+    <div class="form-group">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" placeholder="Введите  имя" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Введите email" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address" placeholder="Введите адрес" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Телефон:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
+    </div>
+    <div class="form-group">
+      <label for="size">Размер:</label>
+      <select id="size" name="size" required>
+        <option value="small">S</option>
+        <option value="medium">M</option>
+        <option value="large">L</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Количество:</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Введите количество" required>
+    </div>
+    <div class="form-group">
+      <label for="shipping">Способ доставки:</label>
+      <input type="radio" id="shipping-standard" name="shipping" value="standard" checked>
+      <label for="shipping-standard">Почта</label>
+      <input type="radio" id="shipping-express" name="shipping" value="express">
+      <label for="shipping-express">Курьер</label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Submit Order">
+    </div>
+  </form>
+</body>
+</html>

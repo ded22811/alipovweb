@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid rgb(255, 255, 255);
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: lightgray;
+    }
+
+    .weekend {
+      background-color: lightblue;
+    }
+
+    .holiday {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <h2>Календарь</h2>
+  <div id="calendar"></div>
+
+  <script>
+    function getMonthCalendar(month = (new Date()).getMonth(), year = (new Date()).getFullYear()) {
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = "";
+    const firstDay = new Date(year, month, 1);
+
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    const header = document.createElement("h2");
+    header.textContent = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+    calendar.appendChild(header);
+    const table = document.createElement("table");
+    calendar.appendChild(table);
+    const thead = document.createElement("thead");
+    table.appendChild(thead);
+  
+    const weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    const theadRow = document.createElement("tr");
+    thead.appendChild(theadRow);
+  
+    for (let i = 0; i < 7; i++) {
+      const weekday = document.createElement("th");
+      weekday.textContent = weekdays[i];
+      theadRow.appendChild(weekday);
+    }
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+  
+    let date = 1;
+    let day = firstDay.getDay();
+  
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement("tr");
+      tbody.appendChild(row);
+  
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement("td");
+        row.appendChild(cell);
+  
+        if (i === 0 && j < day) {
+        } else if (date <= lastDay) {
+          cell.textContent = date;
+          
+          if (j === 5 || j === 6) {
+            cell.classList.add("weekend");
+          }
+          
+          if (month === 0 && date === 1) {
+            cell.classList.add("holiday");
+          }
+  
+          date++;
+        }
+      }
+    }
+  }
+  
+  getMonthCalendar();
+  
+</script>
+</body>
+</html>

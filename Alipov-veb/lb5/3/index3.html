@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка массива</title>
+</head>
+<body>
+    <h1>Обработка массива действительных чисел</h1>
+    <p>Введите массив действительных чисел, разделенных запятыми:</p>
+    <input type="text" id="inputArray">
+    <button onclick="processArray()">Обработать массив</button>
+    <p id="result"></p>
+    <script>
+        function processArray() {
+            var inputArray = document.getElementById('inputArray').value;
+            var array = inputArray.split(',').map(Number);
+
+            function checkCondition(num) {
+                return Math.abs(num - Math.PI) <= 1e-5;
+            }
+
+            function hasEvenDigits(num) {
+                var integerPart = Math.abs(Math.trunc(num)).toString();
+                return integerPart.split('').every(digit => digit % 2 === 0);
+            }
+
+            var sum = 0;
+            var firstMatchingIndex = -1;
+            var lastMatchingIndex = -1;
+
+            for (var i = 0; i < array.length; i++) {
+                if (checkCondition(array[i])) {
+                    if (firstMatchingIndex === -1) {
+                        firstMatchingIndex = i;
+                    }
+                    lastMatchingIndex = i;
+                }
+            }
+
+            if (firstMatchingIndex !== -1 && lastMatchingIndex !== -1) {
+                for (var j = Math.min(firstMatchingIndex, lastMatchingIndex) + 1; j < Math.max(firstMatchingIndex, lastMatchingIndex); j++) {
+                    if (!hasEvenDigits(array[j])) {
+                        sum += array[j];
+                    }
+                }
+                document.getElementById('result').textContent = "Сумма элементов между первым и последним числом, удовлетворяющим условию: " + sum;
+            } else {
+                document.getElementById('result').textContent = "Числа, удовлетворяющие условию, не найдены.";
+            }
+        }
+    </script>
+</body>
+</html>
