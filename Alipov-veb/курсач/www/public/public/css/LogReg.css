@@ -1,0 +1,97 @@
+.logIn {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 150px;
+}
+.logIn__title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+.form-logReg {
+}
+.logIn__input>input {
+    width: 100%;
+    background-color: #323232;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-bottom: 20px;
+}
+.toReg{
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.toregLog {
+    color: #fff;
+    font-size: 18px;
+    transition: all .2s;
+}
+.toregLog:hover{
+    color: #EE8313;
+}
+
+.logIn__button {
+display: block;
+text-align: center;
+}
+.logIn__button-btn {
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #EE8313;
+    transition: all 0.3s;
+}
+.logIn__button-btn:hover{
+    background-color: #804302;
+}
+
+/* ------------------------ */
+
+.register {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+.reg__title {
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.toLog{
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.reg__input>input {
+    width: 100%;
+    color: #fff;
+    background-color: #323232;
+    font-size: 18px;
+    padding: 12px 24px;
+    margin-bottom: 20px;
+}
+.reg__button-btn {
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #EE8313;
+    transition: all 0.3s;
+}
+.reg__button-btn:hover{
+    background-color: #804302;
+}
+
+.register__errors,
+.logIn__errors{
+    font-size: 16px;
+    color: red;
+    text-align: center;
+}

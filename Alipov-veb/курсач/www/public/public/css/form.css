@@ -1,0 +1,35 @@
+.order__form {
+}
+.order__form-title {
+    margin: 50px 0px 50px 0px;
+    text-align: center;
+    font-size: 54px;
+    font-weight: 600;
+}
+.form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-input{
+    margin-bottom: 10px;
+}
+.form-input>input {
+    font-size: 18px;
+    background-color: #363636;
+    padding: 10px 20px;
+    border: 1px solid #EE8313;
+}
+.form-button {
+}
+.form-button-btn {
+    color: #fff;
+    background: #EE8313;
+    padding: 10px 25px;
+    transition: all 0.3s;
+}
+.form-button-btn:hover{
+    background: #8d4a03;
+}

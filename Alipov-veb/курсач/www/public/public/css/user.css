@@ -1,0 +1,111 @@
+.user__panel-block {
+    padding: 80px 0px;
+}
+.user-title {
+    font-size: 52px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.user__panel {
+    display: flex;
+    justify-content: center;
+    gap: 350px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.user__panel-info {
+}
+.panel__info-name {
+    font-size: 31px;
+    margin-bottom: 15px;
+}
+.panel__info-name-editing {
+    margin-bottom: 40px;
+}
+.user__panel-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #EE8313;
+    color: #fff;
+    transition: all 0.2s;
+}
+.user__panel-btn:hover{
+    background-color: #643809;
+}
+.panel__info-mail {
+    font-size: 31px;
+    margin-bottom: 15px;
+}
+.panel__info-mail-editing {
+}
+
+
+.user__panel-basket {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #EE8313;
+    padding: 10px;
+}
+.panel__basket-image{
+    margin-bottom: 25px;
+}
+.panel__basket-image>img {
+    width: 150px;
+}
+.panel__basket-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    align-items: baseline;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #EE8313;
+}
+.panel__basket-product-name,
+.panel__basket-product-price {
+    font-size: 18px;
+}
+.panel__basket-product-price>span{
+    font-size: 21px;
+    color: #EE8313;
+}
+.panel__basket-price {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.panel__basket-price>span{
+    font-size: 21px;
+    color: #EE8313;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+@media(max-width: 1057px){
+    .user__panel {
+        gap: 70px;
+        align-items: flex-start;
+    }
+    .user__panel-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media(max-width: 420px){
+    .panel__info-name,
+    .panel__info-mail{
+        font-size: 24px;
+    }
+}
+@media(max-width: 330px){
+    .panel__info-name,
+    .panel__info-mail{
+        font-size: 21px;
+    }
+}
