@@ -1,0 +1,76 @@
+table {
+    border-collapse: collapse;
+    width: 40%;
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #FFA500;
+    color: white;
+}
+
+.weekend, .current-day {
+    color: red;
+}
+
+.current-day {
+    background-color: #FFA500;
+    color: white;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="number"] {
+    border: 2px solid #FFA500;
+    border-radius: 5px;
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    border: 0;
+    background: #FFA500;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    margin-top: 10px;
+}
+
+label {
+    color: #FFA500;
+    display: block;
+    margin-bottom: 5px;
+}
+.calendar-form {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    margin-right: 10px;
+}
+
+label {
+    color: #FFA500;
+    margin-right: 5px;
+}
